@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+    id "org.sonarqube" version "2.6.2"
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ca.on.wsib.tcm.doc.service'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+	
+}
+
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+
+	compile('org.springframework.boot:spring-boot-starter-integration')
+	compile('org.springframework.boot:spring-boot-starter-jersey')
+	compile('org.springframework.boot:spring-boot-starter-web')
+    compile "org.springframework.kafka:spring-kafka:2.1.4.RELEASE"
+	compile "org.apache.kafka:kafka-clients:1.0.1"
+	compile "com.sun.xml.ws:jaxws-rt:2.2.8"
+	compile "javax.xml.ws:jaxws-api:2.2.12"
+	compile "org.springframework.boot:spring-boot-starter-web-services"
+	compile('commons-io:commons-io:2.+')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile("junit:junit")
+ 	testCompile "org.springframework.kafka:spring-kafka-test:1.2.2.RELEASE"	
+}

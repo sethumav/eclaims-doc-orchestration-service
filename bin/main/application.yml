@@ -1,0 +1,19 @@
+kafka:
+  broker:
+    address: localhost:9092
+  zookeeper:
+    connect: localhost:2181
+  topic:
+    eclaim-submission:  eclaims-dev-submissions
+    eclaim-submission-status:  eclaims-dev-submission-status
+  consumer:
+    concurrency: 1
+    
+GW:
+  ws:
+    endpoint:
+      createclaim: 
+        endpoint: http://dlt-6h7w6h2:8080/cc/ws/ca/on/wsib/poc/service/document/DocumentAPI
+        username: su
+        password: gw
+        retryInterval: 10 
